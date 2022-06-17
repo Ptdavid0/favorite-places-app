@@ -1,10 +1,9 @@
 import React from "react";
 import { View } from "react-native";
-
-// import { Container } from './styles';
+import PlaceForm from "../components/PlaceForm";
 
 const AddPlaces = () => {
-  return <View />;
+  return <PlaceForm />;
 };
 
 export default AddPlaces;
