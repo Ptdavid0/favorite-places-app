@@ -1,10 +1,8 @@
 import React from "react";
-import { View } from "react-native";
-
-// import { Container } from './styles';
+import PlacesList from "../components/PlacesList";
 
 const AllPlaces = () => {
-  return <View />;
+  return <PlacesList />;
 };
 
 export default AllPlaces;
