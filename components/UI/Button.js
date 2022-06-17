@@ -1,14 +1,13 @@
 import React from "react";
-import { Pressable, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Pressable, StyleSheet, Text } from "react-native";
 
-const IconButton = ({ icon, size, color, onPress }) => {
+const ButtonUI = ({ title, onPress }) => {
   return (
     <Pressable
       onPress={onPress}
       style={({ pressed }) => [styles.button, pressed ? styles.pressed : null]}
     >
-      <Ionicons name={icon} size={size} color={color} />
+      <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
 };
@@ -24,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IconButton;
+export default ButtonUI;

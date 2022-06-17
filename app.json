@@ -2,6 +2,14 @@
   "expo": {
     "name": "favoritePlaces",
     "slug": "favoritePlaces",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "the app access to your camera to take photos of your favorite places"
+        }
+      ]
+    ],
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
