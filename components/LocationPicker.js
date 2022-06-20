@@ -6,7 +6,7 @@ import {
   useForegroundPermissions,
   PermissionStatus,
 } from "expo-location";
-import { getMapPreview } from "../util/location";
+import { getMapPreview, getAdressFromLatLng } from "../util/location";
 import {
   useNavigation,
   useRoute,
@@ -28,7 +28,19 @@ const LocationPicker = ({ onPickLocation }) => {
   }, [route, isFocused]);
 
   useEffect(() => {
-    onPickLocation(location);
+    const handleLocation = async () => {
+      if (location) {
+        const { latitude, longitude } = location;
+        try {
+          const address = await getAdressFromLatLng(latitude, longitude);
+          onPickLocation({ ...location, address });
+        } catch (error) {
+          Alert.alert("Could not fetch location", error.message);
+        }
+      }
+    };
+
+    handleLocation();
   }, [location, onPickLocation]);
 
   const verifyPermissions = async () => {
