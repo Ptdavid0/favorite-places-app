@@ -7,10 +7,12 @@ import {
   PermissionStatus,
 } from "expo-location";
 import { getMapPreview } from "../util/location";
+import { useNavigation } from "@react-navigation/native";
 
 const LocationPicker = () => {
   const [locationPermisson, requestPermission] = useForegroundPermissions();
   const [location, setLocation] = React.useState(null);
+  const navigate = useNavigation();
 
   const verifyPermissions = async () => {
     if (locationPermisson.status === PermissionStatus.UNDETERMINED) {
@@ -46,7 +48,7 @@ const LocationPicker = () => {
   };
 
   const pickLocationOnMapHandler = () => {
-    console.log("Getting location");
+    navigate.navigate("Map");
   };
 
   return (
@@ -65,7 +67,9 @@ const LocationPicker = () => {
         <OutlinedButton icon={"location"} onPress={getLocationHandler}>
           Locate User
         </OutlinedButton>
-        <OutlinedButton icon={"map"}>Pick On Map</OutlinedButton>
+        <OutlinedButton icon={"map"} onPress={pickLocationOnMapHandler}>
+          Pick On Map
+        </OutlinedButton>
       </View>
     </View>
   );
