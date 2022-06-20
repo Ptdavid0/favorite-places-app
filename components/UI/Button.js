@@ -16,7 +16,7 @@ const ButtonUI = ({ children, onPress }) => {
 const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 16,
     margin: 24,
     backgroundColor: Colors.primary500,
     shadowColor: "black",

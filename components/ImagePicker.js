@@ -7,7 +7,7 @@ import {
 } from "expo-image-picker";
 import OutlinedButton from "./UI/OutlinedButton";
 
-const ImagePicker = () => {
+const ImagePicker = ({ onImageTaken }) => {
   const [cameraPermission, requestPermission] = useCameraPermissions();
   const [image, setImage] = React.useState(null);
 
@@ -44,6 +44,7 @@ const ImagePicker = () => {
     });
 
     setImage(image.uri);
+    onImageTaken(image.uri);
   };
 
   return (
