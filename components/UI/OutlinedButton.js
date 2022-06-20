@@ -6,11 +6,11 @@ import { Colors } from "../../constants/colors";
 const OutlinedButton = ({ icon, onPress, children }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={({ pressed }) => [styles.button, pressed && styles.pressed]}
     >
       <Ionicons
         name={icon}
-        onPress={onPress}
         size={18}
         color={Colors.primary500}
         style={styles.icon}
