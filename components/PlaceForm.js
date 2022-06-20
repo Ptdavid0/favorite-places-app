@@ -3,12 +3,17 @@ import { ScrollView, Text, TextInput, View, StyleSheet } from "react-native";
 import { Colors } from "../constants/colors";
 import ImagePicker from "./ImagePicker";
 import LocationPicker from "./LocationPicker";
+import ButtonUI from "./UI/Button";
 
 const PlaceForm = () => {
   const [title, setTitle] = React.useState("");
 
   const handleTitleChange = (text) => {
     setTitle(text);
+  };
+
+  const handleSubmit = () => {
+    console.log("Submitted:", title);
   };
 
   return (
@@ -23,6 +28,7 @@ const PlaceForm = () => {
       </View>
       <ImagePicker />
       <LocationPicker />
+      <ButtonUI onPress={handleSubmit}>Save Place</ButtonUI>
     </ScrollView>
   );
 };
