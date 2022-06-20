@@ -1,11 +1,19 @@
 import React, { useCallback } from "react";
-import { ScrollView, Text, TextInput, View, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Alert,
+} from "react-native";
 import { Colors } from "../constants/colors";
 import ImagePicker from "./ImagePicker";
 import LocationPicker from "./LocationPicker";
 import ButtonUI from "./UI/Button";
+import { Place } from "../models/place";
 
-const PlaceForm = () => {
+const PlaceForm = ({ createPlaceHandler }) => {
   const [title, setTitle] = React.useState("");
   const [pickedLocation, setPickedLocation] = React.useState(null);
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -23,7 +31,12 @@ const PlaceForm = () => {
   }, []);
 
   const handleSubmit = () => {
-    console.log([title, pickedLocation, selectedImage]);
+    if (!title || !pickedLocation || !selectedImage) {
+      Alert.alert("Please provide all information", "", [{ text: "OK" }]);
+      return;
+    }
+    const placeData = new Place(title, pickedLocation, selectedImage);
+    createPlaceHandler(placeData);
   };
 
   return (

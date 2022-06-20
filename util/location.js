@@ -4,7 +4,7 @@ export const getMapPreview = ({ latitude, longitude }) => {
   return `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&maptype=roadmap&scale=2&size=200x400&markers=color:red%7Clabel:S%7C${latitude},${longitude}&key=${GOOGLE_API_KEY}`;
 };
 
-export const getAdressFromLatLng = async (latitude, longitude) => {
+export const getAdressFromLatLng = async ({ latitude, longitude }) => {
   const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_API_KEY}`;
   const response = await fetch(url);
 

@@ -1,11 +1,14 @@
 import uuid from "react-native-uuid";
 
 export class Place {
-  constructor(title, location, imageUrl, adress) {
+  constructor(title, location, imageUrl) {
     this.title = title;
-    this.location = location;
+    this.location = {
+      latitude: location.latitude,
+      longitude: location.longitude,
+    };
     this.imageUrl = imageUrl;
-    this.adress = adress;
+    this.adress = location.address;
     this.id = uuid.v4();
   }
 }

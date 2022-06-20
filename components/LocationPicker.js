@@ -23,16 +23,16 @@ const LocationPicker = ({ onPickLocation }) => {
 
   useEffect(() => {
     if (isFocused && route.params) {
-      setLocation(route.params.pickedLocation);
+      const { pickedLocation } = route.params;
+      setLocation({ ...pickedLocation });
     }
   }, [route, isFocused]);
 
   useEffect(() => {
     const handleLocation = async () => {
       if (location) {
-        const { latitude, longitude } = location;
         try {
-          const address = await getAdressFromLatLng(latitude, longitude);
+          const address = await getAdressFromLatLng(location);
           onPickLocation({ ...location, address });
         } catch (error) {
           Alert.alert("Could not fetch location", error.message);
