@@ -7,11 +7,9 @@ const AllPlaces = ({ route }) => {
   const isFocused = useIsFocused();
   useEffect(() => {
     if (isFocused && route.params) {
-      setPlaces((prevPlaces) => [route.params.place, ...prevPlaces]);
+      setPlaces((prevPlaces) => [, route.params.place, ...prevPlaces]);
     }
   }, [isFocused, route]);
-
-  console.log(places);
 
   return <PlacesList places={places} />;
 };
