@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AllPlaces from "./screens/AllPlaces";
@@ -8,10 +7,15 @@ import AddPlaces from "./screens/AddPlaces";
 import IconButton from "./components/UI/IconButton";
 import { Colors } from "./constants/colors";
 import Map from "./screens/Map";
+import { init } from "./util/database";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <>
       <StatusBar style="auto" />
@@ -60,12 +64,3 @@ export default function App() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
