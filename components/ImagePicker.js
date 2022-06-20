@@ -70,10 +70,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#e3e3e3",
     marginHorizontal: 24,
+    overflow: "hidden",
+    borderRadius: 4,
   },
   image: {
     width: "100%",
     height: "100%",
+    borderRadius: 4,
   },
 });
 

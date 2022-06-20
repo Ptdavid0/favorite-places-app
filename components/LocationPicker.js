@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e3e3e3",
     marginHorizontal: 24,
     borderRadius: 4,
+    overflow: "hidden",
   },
   actions: {
     flexDirection: "row",
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
   mapImage: {
     width: "100%",
     height: "100%",
+    borderRadius: 4,
   },
 });
 
