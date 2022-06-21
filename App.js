@@ -7,15 +7,12 @@ import AddPlaces from "./screens/AddPlaces";
 import IconButton from "./components/UI/IconButton";
 import { Colors } from "./constants/colors";
 import Map from "./screens/Map";
-import { init } from "./util/database";
+
+import PlaceDetails from "./screens/PlaceDetails";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  useEffect(() => {
-    init();
-  }, []);
-
   return (
     <>
       <StatusBar style="auto" />
@@ -57,6 +54,13 @@ export default function App() {
             component={Map}
             options={{
               title: "Map View",
+            }}
+          />
+          <Stack.Screen
+            name="PlaceDetails"
+            component={PlaceDetails}
+            options={{
+              title: "Place Details",
             }}
           />
         </Stack.Navigator>
